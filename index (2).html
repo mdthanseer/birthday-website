@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Muttha 🥰</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="loader">
+
+<h1>🎂 Happy Birthday 🎂</h1>
+
+<h2>Nowfi Chottha 🥰</h2>
+
+<p>Special Surprise Waiting...</p>
+
+<button id="openBtn">
+
+🎁 Open Surprise
+
+</button>
+
+</div>
+
+<audio id="music" autoplay loop>
+
+<source src="music/birthday-song.m4a" type="audio/mp4">
+
+</audio>
+
+<div class="main hidden">
+
+<div class="stars"></div>
+
+<h1 class="title">
+
+Happy Birthday
+
+</h1>
+
+<h2 class="name">
+
+Muttha 🥰
+
+</h2>
+
+<p class="typing"></p>
+
+<div class="cake">
+
+🎂
+
+</div>
+
+<div class="gallery">
+
+<img src="images/photo1.jpg">
+
+<img src="images/photo2.jpg">
+
+<img src="images/photo3.jpg">
+
+<img src="images/photo4.jpg">
+
+<img src="images/photo5.jpg">
+
+<img src="images/photo6.jpg">
+
+<img src="images/photo7.jpg">
+
+<img src="images/photo8.jpg">
+
+<img src="images/photo9.jpg">
+
+<img src="images/photo10.jpg">
+
+</div>
+
+<button id="giftBtn">
+
+🎁 Open Your Gift
+
+</button>
+
+</div>
+
+<div id="letter" class="hidden">
+
+<h2>💖 Dear Muttha 🥰</h2>
+
+<p>
+
+Happy Birthday, my dear friend! 🥳🎂
+
+Thank you for always being there for me.
+
+I hope this year brings you happiness,
+
+success,
+
+good health,
+
+and everything you've dreamed of.
+
+Stay happy and keep smiling.
+
+Have an amazing birthday!
+
+</p>
+
+</div>
+
+<!-- Confetti Canvas -->
+<canvas id="confetti"></canvas>
+
+<!-- Full Screen Image Viewer -->
+<div id="viewer" class="hidden">
+    <span id="closeViewer">&times;</span>
+    <img id="viewerImg">
+</div>
+<script src="script.js"></script>
+
+</body>
+
+</html>

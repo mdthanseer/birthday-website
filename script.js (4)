@@ -1,0 +1,247 @@
+// Elements
+const loader = document.getElementById("loader");
+const main = document.querySelector(".main");
+const openBtn = document.getElementById("openBtn");
+const giftBtn = document.getElementById("giftBtn");
+const letter = document.getElementById("letter");
+const music = document.getElementById("music");
+const typing = document.querySelector(".typing");
+
+// Birthday Message
+const message =
+"Happy Birthday, my dear friend! 🥳🎂 Thank you for always being there for me. I hope this year brings you happiness, success, good health, and everything you've dreamed of. Stay happy and keep smiling. Have an amazing birthday! ❤️";
+
+let index = 0;
+
+// Typing Effect
+function typeText() {
+    if (index < message.length) {
+        typing.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(typeText, 40);
+    }
+}
+
+// Open Surprise
+openBtn.addEventListener("click", () => {
+
+    loader.style.display = "none";
+    main.classList.remove("hidden");
+
+    music.play().catch(() => {});
+
+    typeText();
+
+    startSlideshow();
+    floatingHearts();
+});
+
+// Gift Button
+giftBtn.addEventListener("click", () => {
+
+    letter.classList.remove("hidden");
+
+    letter.scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+// Auto Slideshow
+const photos = document.querySelectorAll(".gallery img");
+
+let current = 0;
+
+let slideshowInterval = null;
+
+function startSlideshow(){
+    if(slideshowInterval) clearInterval(slideshowInterval);
+    
+    slideshowInterval = setInterval(() => {
+        photos.forEach(img => img.style.opacity = ".35");
+        photos[current].style.opacity = "1";
+        photos[current].style.transform = "scale(1.05)";
+
+        setTimeout(() => {
+            photos[current].style.transform = "scale(1)";
+        }, 800);
+
+        current = (current + 1) % photos.length;
+    }, 2500);
+
+}
+
+// Floating Hearts
+
+function floatingHearts(){
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.innerHTML="💜";
+
+heart.style.position="fixed";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.bottom="-30px";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.opacity=".9";
+
+heart.style.pointerEvents="none";
+
+heart.style.transition="all 6s linear";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.bottom="110vh";
+
+heart.style.opacity="0";
+
+},100);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},6500);
+
+},500);
+
+}
+
+// Birthday Console Message 😄
+console.log("🎂 Happy Birthday Muttha 🥰");
+
+/* Photo Viewer */
+
+const viewer=document.getElementById("viewer");
+const viewerImg=document.getElementById("viewerImg");
+const closeViewer=document.getElementById("closeViewer");
+
+photos.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+viewer.classList.remove("hidden");
+
+viewerImg.src=img.src;
+
+});
+
+});
+
+closeViewer.onclick=()=>{
+
+viewer.classList.add("hidden");
+
+};
+
+/* Simple Confetti */
+
+const canvas=document.getElementById("confetti");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+let confetti=[];
+
+for(let i=0;i<150;i++){
+
+confetti.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*6+2,
+
+d:Math.random()*150
+
+});
+
+}
+
+function drawConfetti(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="gold";
+    confetti.forEach(c=>{
+        ctx.beginPath();
+        ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
+        ctx.fill();
+        c.y+=2;
+        if(c.y>canvas.height){
+            c.y=-10;
+            c.x = Math.random() * canvas.width;
+        }
+    });
+    requestAnimationFrame(drawConfetti);
+}
+
+drawConfetti();
+
+/* Fireworks */
+
+let fireworksActive = false;
+
+function fireworks(){
+    if(fireworksActive) return;
+    fireworksActive = true;
+    
+    setInterval(()=>{
+        const fire=document.createElement("div");
+        fire.className="firework";
+        fire.style.left=Math.random()*100+"vw";
+        fire.style.top=Math.random()*70+"vh";
+        document.body.appendChild(fire);
+
+        setTimeout(()=>{
+            fire.remove();
+        },1200);
+    },900);
+}
+
+/* Balloons */
+
+let balloonsActive = false;
+
+function balloons(){
+    if(balloonsActive) return;
+    balloonsActive = true;
+    
+    const emoji=["🎈","🎈","🎈","🎉","✨"];
+    setInterval(()=>{
+        const b=document.createElement("div");
+        b.className="balloon";
+        b.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+        b.style.left=Math.random()*100+"vw";
+        document.body.appendChild(b);
+
+        setTimeout(()=>{
+            b.remove();
+        },12000);
+    },900);
+}
+// Close Viewer - Click pannu close aagum
+viewer.addEventListener('click', (e) => {
+    if(e.target === viewer) {
+        viewer.classList.add('hidden');
+    }
+});
+
+// Close button click
+closeViewer.onclick = () => {
+    viewer.classList.add('hidden');
+};
+
+// Start animations
+fireworks();
+balloons();

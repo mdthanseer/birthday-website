@@ -1,0 +1,305 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#000000,#1a0033,#2d004d);
+    color:#fff;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* Welcome Screen */
+
+#loader{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(135deg,#000,#2b004d,#000);
+}
+
+#loader h1{
+    font-size:55px;
+    color:#FFD700;
+    text-shadow:0 0 20px gold;
+}
+
+#loader h2{
+    margin-top:15px;
+    color:#c77dff;
+    font-size:35px;
+}
+
+#loader p{
+    margin:20px;
+    color:white;
+    font-size:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(90deg,#FFD700,#ffcc00);
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px gold;
+}
+
+.hidden{
+    display:none;
+}
+
+/* Main */
+
+.main{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.title{
+    color:#FFD700;
+    font-size:55px;
+    text-shadow:0 0 25px gold;
+}
+
+.name{
+    margin-top:10px;
+    color:#d291ff;
+    font-size:40px;
+}
+
+.typing{
+    margin:30px auto;
+    max-width:750px;
+    font-size:22px;
+    line-height:1.8;
+}
+
+.cake{
+    font-size:120px;
+    margin:25px 0;
+    animation:float 3s ease-in-out infinite;
+}
+
+/* Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    border:3px solid gold;
+    transition:.5s;
+    box-shadow:0 0 20px rgba(255,215,0,.5);
+}
+
+.gallery img:hover{
+    transform:scale(1.06);
+    box-shadow:0 0 35px gold;
+}
+
+/* Letter */
+
+#letter{
+    max-width:900px;
+    margin:60px auto;
+    background:rgba(255,255,255,.08);
+    padding:35px;
+    border-radius:20px;
+    border:2px solid gold;
+    backdrop-filter:blur(10px);
+}
+
+#letter h2{
+    color:#FFD700;
+    margin-bottom:20px;
+}
+
+#letter p{
+    line-height:2;
+    font-size:20px;
+}
+
+/* Stars */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+    background-size:40px 40px;
+    opacity:.4;
+    animation:moveStars 40s linear infinite;
+}
+
+@keyframes moveStars{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-600px);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.title{
+font-size:38px;
+}
+
+.name{
+font-size:30px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery img{
+height:250px;
+}
+
+#loader h1{
+font-size:38px;
+}
+
+#loader h2{
+font-size:28px;
+}
+
+}
+
+/* Confetti */
+
+#confetti{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:999;
+}
+
+/* Full Screen Viewer */
+
+#viewer{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#viewer img{
+max-width:90%;
+max-height:90%;
+border:4px solid gold;
+border-radius:20px;
+box-shadow:0 0 40px gold;
+}
+
+#closeViewer{
+position:absolute;
+top:20px;
+right:30px;
+font-size:50px;
+color:white;
+cursor:pointer;
+}
+/* Fireworks */
+
+.firework{
+position:fixed;
+width:10px;
+height:10px;
+border-radius:50%;
+background:gold;
+pointer-events:none;
+animation:explode 1.2s linear forwards;
+}
+
+@keyframes explode{
+0%{
+transform:scale(.2);
+opacity:1;
+}
+100%{
+transform:scale(20);
+opacity:0;
+}
+}
+
+/* Floating Balloons */
+
+.balloon{
+position:fixed;
+bottom:-120px;
+font-size:45px;
+animation:fly 12s linear infinite;
+pointer-events:none;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(0);
+}
+100%{
+transform:translateY(-130vh);
+}
+}
+
+/* Footer */
+
+.footer{
+margin-top:80px;
+padding:30px;
+font-size:18px;
+color:#FFD700;
+text-align:center;
+}
