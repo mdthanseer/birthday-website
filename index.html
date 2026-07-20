@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday — vanthu chottha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="gift">
+      <button id="openBtn" class="open-btn">🎁 Open Surprise</button>
+    </div>
+  </div>
+
+  <main id="mainContent" class="hidden">
+    <header class="hero">
+      <h1 id="recipient">vanthu chottha</h1>
+      <p id="typing" class="typing"></p>
+    </header>
+
+    <section class="controls">
+      <button id="playPause" class="btn">⏯️ Play/Pause Music</button>
+      <select id="trackSelect" class="select"></select>
+    </section>
+
+    <section class="gallery">
+      <div id="slideshow" class="slideshow">
+        <!-- images/photo1.jpg ... photo10.jpg -->
+        <img src="images/photo1.jpg" alt="photo1" class="slide active">
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </section>
+
+    <section class="letter">
+      <div class="card">
+        <h2>A Special Message</h2>
+        <p id="giftMessage">Happy Birthday, my dear friend! 🥳🎂
+Thank you for always being there for me. I hope this year brings you happiness, success, good health, and everything you've dreamed of. Stay happy and keep smiling. Have an amazing birthday!</p>
+      </div>
+    </section>
+
+    <audio id="music" loop></audio>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
